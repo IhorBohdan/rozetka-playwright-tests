@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { testUser } from '../fixtures/user.fixture';
 
-test('Користувач успішно логіниться', async ({ page }) => {
+test('Verify that the user is successfully logged in', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();

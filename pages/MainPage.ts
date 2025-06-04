@@ -14,8 +14,6 @@ export class MainPage {
   readonly smartphonesCategory: Locator;
   readonly subCategories: Locator;
   readonly categoryLinks: Locator;
-  readonly searchInput: Locator;
-  readonly searchButton: Locator;
     
   constructor(page: Page) {
     this.page = page;
@@ -70,7 +68,7 @@ export class MainPage {
       await expect(this.page.locator('ul.list-content')).toContainText(text);
     }
   }
-  
+
   async searchForProduct(productName: string) {
   await this.searchInput.fill(productName);
   await this.searchButton.click();
