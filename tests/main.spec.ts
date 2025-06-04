@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '../pages/MainPage';
 
+test.describe('@smoke', () => {
 test('[@smoke] Verify that the main page of the Rozetka interface contains all the main controls,', async ({ page }) => {
   const mainPage = new MainPage(page);
   await mainPage.open();
@@ -14,4 +15,5 @@ test('[@smoke] Verify that the main page of the Rozetka interface contains all t
   await expect(mainPage.compareButton).toBeVisible();
   await expect(mainPage.cartButton).toBeVisible();
 
+});
 });

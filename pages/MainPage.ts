@@ -37,10 +37,24 @@ export class MainPage {
     await this.page.goto('/');
   }
 
-    async closeAllBanners() {
- await this.page.getByRole('button', { name: 'Close' }).click();
- await this.page.locator('#rz-banner span').nth(1).click();
+async closeAllBanners() {
+  const closeButton = this.page.locator('button:has-text("Close")');
+  const banner = this.page.locator('#rz-banner span').nth(1);
+
+  const closeButtonExists = await closeButton.isVisible();
+  if (closeButtonExists) {
+    await closeButton.click();
+  } else {
+    console.log('Кнопка закриття не знайдена');
   }
+
+  const bannerExists = await banner.isVisible();
+  if (bannerExists) {
+    await banner.click();
+  } else {
+    console.log('Банер не знайдений');
+  }
+}
    async openCatalog() {
     await this.catalogButton.click();
      await this.page.waitForTimeout(500);

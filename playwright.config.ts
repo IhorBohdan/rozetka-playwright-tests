@@ -1,26 +1,18 @@
-import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { defineConfig } from '@playwright/test';
+
 export default defineConfig({
-  grep: process.env.GREP ? new RegExp(process.env.GREP) : undefined,
   testDir: './tests',
-  timeout: 30 * 1000,
+  timeout: 30000,
+  expect: {
+    timeout: 5000,
+  },
   use: {
+    baseURL: 'https://rozetka.com.ua/',
     headless: false,
+    viewport: { width: 1280, height: 720 },
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    baseURL: 'https://rozetka.com.ua/',
-    storageState: 'storageState.json',
+    storageState: './fixtures/storageState.json',
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    }
-  ],
-  reporter: [
-    ['list'],
-    ['html', { open: 'never' }],
-    ['allure-playwright'],
-  ],
+  reporter: [['list'], ['allure-playwright']],
 });
