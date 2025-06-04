@@ -3,7 +3,7 @@ import { MainPage } from '../pages/MainPage';
 import { CartPage } from '../pages/CartPage';
 import { SearchPage }  from '../pages/SearchPage';
 
-test('Check that the user can find the product and add it to the cart', async ({ page }) => {
+test('[@smoke] Check that the user can find the product and add it to the cart', async ({ page }) => {
   const mainPage = new MainPage(page);
   const cartPage = new CartPage(page);
   const searchPage = new SearchPage(page);

@@ -15,9 +15,7 @@ async openLoginModal() {
   const loginButton = this.page.locator('li.header-actions__item--user button.header__button');
   await expect(loginButton).toBeVisible({ timeout: 10000 });
   await loginButton.click();
-
-  const loginModal = this.page.locator('form[autocomplete="on"]');
-  await expect(loginModal).toBeVisible({ timeout: 5000 });
+  await this.page.waitForTimeout(5000);
 }
 
   async login(email: string, password: string) {

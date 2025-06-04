@@ -17,6 +17,7 @@ test-results/
 videos/
 screenshots/
 playwright-report/
+allure-results/
 
 # VSCode
 .vscode/

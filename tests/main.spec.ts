@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '../pages/MainPage';
 
-test('Verify that the main page of the Rozetka interface contains all the main controls,', async ({ page }) => {
+test('[@smoke] Verify that the main page of the Rozetka interface contains all the main controls,', async ({ page }) => {
   const mainPage = new MainPage(page);
   await mainPage.open();
 
