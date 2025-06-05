@@ -57,13 +57,14 @@ async closeAllBanners() {
 }
    async openCatalog() {
     await this.catalogButton.click();
-     await this.page.waitForTimeout(500);
+    await this.page.waitForTimeout(500);
   }
 
   async hoverSmartphonesCategory() {
     const smartphonesCategory = this.categoryLinks.nth(1);
     await smartphonesCategory.scrollIntoViewIfNeeded();
-    await smartphonesCategory.hover({ force: true }); await this.page.waitForTimeout(500);
+    await smartphonesCategory.hover({ force: true }); 
+    await this.page.waitForTimeout(500);
   }
 
   async verifySubcategories() {
@@ -84,7 +85,7 @@ async closeAllBanners() {
   }
 
   async searchForProduct(productName: string) {
-  await this.searchInput.fill(productName);
-  await this.searchButton.click();
+    await this.searchInput.fill(productName);
+    await this.searchButton.click();
 }
 }

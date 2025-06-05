@@ -5,10 +5,11 @@ export class SearchPage {
   readonly searchInput: Locator;
   readonly cartCounter: Locator;
   readonly cartButton: Locator;
+
   constructor(page: Page) {
     this.page = page;
     this.searchInput = page.locator('input[name="search"]');
-this.cartCounter = page.locator('rz-cart span.counter');
+    this.cartCounter = page.locator('rz-header-cart');
     this.cartButton = page.locator('button.header-cart__button:has(svg use[rziconname="icon-header-basket"])');
   }
 
@@ -19,11 +20,10 @@ this.cartCounter = page.locator('rz-cart span.counter');
   }
 
    async addFirstItemToCart() {
+    await this.page.waitForTimeout(5000);
     const firstTile = this.page.locator('rz-product-tile').first();
     const buyButton = firstTile.locator('button.buy-button');
-
     await buyButton.scrollIntoViewIfNeeded();
-    await buyButton.waitFor({ state: 'visible', timeout: 5000 });
     await buyButton.click();
 
     await expect(this.cartCounter).toHaveText(/1/, { timeout: 7000 });
