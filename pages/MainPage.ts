@@ -45,14 +45,14 @@ async closeAllBanners() {
   if (closeButtonExists) {
     await closeButton.click();
   } else {
-    console.log('Кнопка закриття не знайдена');
+    console.log('Close button not found');
   }
 
   const bannerExists = await banner.isVisible();
   if (bannerExists) {
     await banner.click();
   } else {
-    console.log('Банер не знайдений');
+    console.log('Banner not found');
   }
 }
    async openCatalog() {

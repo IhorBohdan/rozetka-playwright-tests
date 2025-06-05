@@ -8,6 +8,6 @@ export class Header {
   }
 
     async checkCardCounter(counterValue: string) {
-    await expect(this.cartCounter).toHaveText(counterValue, { timeout: 7000 });
-  }
+      await expect(this.cartCounter).toHaveText(counterValue, { timeout: 7000 });
+    }
 }

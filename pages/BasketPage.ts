@@ -17,8 +17,8 @@ export class BasketPage {
   }
 
     async openBasket() {
-      await this.page.waitForTimeout(5000);
-      await this.basketIcon.click();
+      // await this.page.waitForTimeout(5000);
+      await this.basketIcon.click({ timeout: 7000 });
     }
 
     async verifyProductInCart(expectedText: string) {

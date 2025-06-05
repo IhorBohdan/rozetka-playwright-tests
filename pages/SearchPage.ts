@@ -20,11 +20,11 @@ export class SearchPage {
   }
 
    async addFirstItemToCart() {
-    await this.page.waitForTimeout(5000);
+    // await this.page.waitForTimeout(5000);
     const firstTile = this.page.locator('rz-product-tile').first();
     const buyButton = firstTile.locator('button.buy-button');
-    await buyButton.scrollIntoViewIfNeeded();
-    await buyButton.click();
+    // await buyButton.scrollIntoViewIfNeeded();
+    await buyButton.click({ timeout: 7000 });
 
     await expect(this.cartCounter).toHaveText(/1/, { timeout: 7000 });
   }
